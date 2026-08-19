@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalysisRouteImport } from './routes/analysis'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PersonalizationRouteImport } from './routes/personalization'
+import { Route as TriageRouteImport } from './routes/triage'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalysisRoute = AnalysisRouteImport.update({
+  id: '/analysis',
+  path: '/analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalizationRoute = PersonalizationRouteImport.update({
+  id: '/personalization',
+  path: '/personalization',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TriageRoute = TriageRouteImport.update({
+  id: '/triage',
+  path: '/triage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analysis': typeof AnalysisRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/personalization': typeof PersonalizationRoute
+  '/triage': typeof TriageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analysis': typeof AnalysisRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/personalization': typeof PersonalizationRoute
+  '/triage': typeof TriageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analysis': typeof AnalysisRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/personalization': typeof PersonalizationRoute
+  '/triage': typeof TriageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/analysis' | '/home' | '/login' | '/personalization' | '/triage'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/analysis' | '/home' | '/login' | '/personalization' | '/triage'
+  id:
+    | '__root__'
+    | '/'
+    | '/analysis'
+    | '/home'
+    | '/login'
+    | '/personalization'
+    | '/triage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalysisRoute: typeof AnalysisRoute
+  HomeRoute: typeof HomeRoute
+  LoginRoute: typeof LoginRoute
+  PersonalizationRoute: typeof PersonalizationRoute
+  TriageRoute: typeof TriageRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analysis': {
+      id: '/analysis'
+      path: '/analysis'
+      fullPath: '/analysis'
+      preLoaderRoute: typeof AnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personalization': {
+      id: '/personalization'
+      path: '/personalization'
+      fullPath: '/personalization'
+      preLoaderRoute: typeof PersonalizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/triage': {
+      id: '/triage'
+      path: '/triage'
+      fullPath: '/triage'
+      preLoaderRoute: typeof TriageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalysisRoute: AnalysisRoute,
+  HomeRoute: HomeRoute,
+  LoginRoute: LoginRoute,
+  PersonalizationRoute: PersonalizationRoute,
+  TriageRoute: TriageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
