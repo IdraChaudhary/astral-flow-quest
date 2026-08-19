@@ -9,7 +9,7 @@ export function Brand({ className, compact = false }: { className?: string; comp
         <Star className="absolute -right-0.5 -top-0.5 h-3 w-3 fill-gold text-gold" />
       </span>
       {!compact && (
-        <span className="font-display text-lg font-700 tracking-tight">
+        <span className="font-display text-lg font-bold tracking-tight">
           ASTRO<span className="text-primary">LIVE</span>
           <span className="ml-1 align-super text-[10px] font-semibold text-gold-foreground">2.0</span>
         </span>
