@@ -34,6 +34,15 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-gold-soft: var(--gold-soft);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-soft: var(--success-soft);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -147,5 +156,28 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility card-soft {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 1px 2px oklch(0.4 0.1 290 / 0.04), 0 12px 28px -18px oklch(0.4 0.1 290 / 0.35);
+}
+
+@utility starfield {
+  background-image:
+    radial-gradient(circle at 12% 22%, oklch(0.75 0.12 292 / 0.35) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 78% 14%, oklch(0.8 0.12 85 / 0.45) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 62% 68%, oklch(0.75 0.12 292 / 0.3) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 30% 82%, oklch(0.8 0.12 85 / 0.35) 0 1.2px, transparent 1.4px);
 }
